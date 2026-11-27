@@ -187,12 +187,12 @@ footer .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;f
  <div><h2 class="big">Craft &amp; speed</h2>
   <p>Real editors pick the moments, cut each clip to 5 seconds and add captions that match your brand. You send one long video. We send back a batch that is ready to post.</p>
   <a class="btn k" href="#how">How it works</a></div>
- <!-- Full-length clips. Swap the files in clips/full/ (and the posters in clips/poster/) to change them. Click a clip for sound. -->
+ <!-- Full-length clips: clip1.mp4 to clip4.mp4. Laptop 10s cuts: "clip1 (1).mp4" etc. Click a clip for sound. -->
  <div class="coll" aria-label="Example clips">
-  <div class="cd"><video src="clips/full/clip1.mp4" poster="clips/poster/clip1.jpg" muted loop playsinline preload="metadata" aria-label="Podcast clip"></video><b>0:58</b><i class="pb"></i><button class="snd" type="button" aria-label="Toggle sound"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="off" d="M17 9l5 6M22 9l-5 6"/><path class="on" d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg></button></div>
-  <div class="cd"><video src="clips/full/clip2.mp4" poster="clips/poster/clip2.jpg" muted loop playsinline preload="metadata" aria-label="Interview clip"></video><b>1:00</b><i class="pb"></i><button class="snd" type="button" aria-label="Toggle sound"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="off" d="M17 9l5 6M22 9l-5 6"/><path class="on" d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg></button></div>
-  <div class="cd"><video src="clips/full/clip3.mp4" poster="clips/poster/clip3.jpg" muted loop playsinline preload="metadata" aria-label="Stream montage clip"></video><b>0:59</b><i class="pb"></i><button class="snd" type="button" aria-label="Toggle sound"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="off" d="M17 9l5 6M22 9l-5 6"/><path class="on" d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg></button></div>
-  <div class="cd"><video src="clips/full/clip4.mp4" poster="clips/poster/clip4.jpg" muted loop playsinline preload="metadata" aria-label="Skit clip"></video><b>0:11</b><i class="pb"></i><button class="snd" type="button" aria-label="Toggle sound"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="off" d="M17 9l5 6M22 9l-5 6"/><path class="on" d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg></button></div>
+  <div class="cd"><video src="clip1.mp4" poster="clip1.jpg" muted loop playsinline preload="metadata" aria-label="Podcast clip"></video><b>0:58</b><i class="pb"></i><button class="snd" type="button" aria-label="Toggle sound"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="off" d="M17 9l5 6M22 9l-5 6"/><path class="on" d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg></button></div>
+  <div class="cd"><video src="clip2.mp4" poster="clip2.jpg" muted loop playsinline preload="metadata" aria-label="Interview clip"></video><b>1:00</b><i class="pb"></i><button class="snd" type="button" aria-label="Toggle sound"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="off" d="M17 9l5 6M22 9l-5 6"/><path class="on" d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg></button></div>
+  <div class="cd"><video src="clip3.mp4" poster="clip3.jpg" muted loop playsinline preload="metadata" aria-label="Stream montage clip"></video><b>0:59</b><i class="pb"></i><button class="snd" type="button" aria-label="Toggle sound"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="off" d="M17 9l5 6M22 9l-5 6"/><path class="on" d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg></button></div>
+  <div class="cd"><video src="clip4.mp4" poster="clip4.jpg" muted loop playsinline preload="metadata" aria-label="Skit clip"></video><b>0:11</b><i class="pb"></i><button class="snd" type="button" aria-label="Toggle sound"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="off" d="M17 9l5 6M22 9l-5 6"/><path class="on" d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg></button></div>
  </div>
 </div></section>
 
@@ -247,10 +247,10 @@ R.forEach(function(row,r){var d=document.createElement("div");d.className="kr";d
 var N=4,CL=10,SCAN=3.2,CYC=SCAN+N*CL,pvEl=$("pv"),segs=[],chs=[],vids=[],curKey=null,i;
 function fmt(s){s=Math.floor(s);return Math.floor(s/60)+":"+(s%60<10?"0":"")+(s%60)}
 for(i=0;i<N;i++){var s=document.createElement("div");s.className="seg";s.style.setProperty("--h",10+i*70);s.textContent="10s";
- s.style.backgroundImage="linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.55)),url(clips/poster/clip"+(i+1)+".jpg)";vt.appendChild(s);segs.push(s);
+ s.style.backgroundImage="linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.55)),url(clip"+(i+1)+".jpg)";vt.appendChild(s);segs.push(s);
  var d=document.createElement("div");d.className="c";d.innerHTML="<span>Clip "+(i+1)+"</span><span>0:10</span>";cl.appendChild(d);chs.push(d);
  /* the 10-second cut of each clip plays inside the laptop editor */
- var v=document.createElement("video");v.src="clips/short/clip"+(i+1)+".mp4";v.poster="clips/poster/clip"+(i+1)+".jpg";v.muted=true;v.defaultMuted=true;v.loop=true;v.playsInline=true;v.preload="auto";v.setAttribute("playsinline","");v.setAttribute("muted","");pvEl.appendChild(v);vids.push(v)}
+ var v=document.createElement("video");v.src="clip"+(i+1)+"%20("+(i+1)+").mp4";v.poster="clip"+(i+1)+".jpg";v.muted=true;v.defaultMuted=true;v.loop=true;v.playsInline=true;v.preload="auto";v.setAttribute("playsinline","");v.setAttribute("muted","");pvEl.appendChild(v);vids.push(v)}
 function show(key){
  if(key===curKey)return;curKey=key;
  var idx=key==="s"?0:key;
