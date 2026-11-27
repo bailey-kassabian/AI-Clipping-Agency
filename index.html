@@ -21,17 +21,18 @@ nav .links a{text-decoration:none}
 nav .cta{border:1px solid #fff;padding:9px 20px;border-radius:99px;text-decoration:none;font-size:14px}
 @media(max-width:760px){nav .links{display:none}}
 
-/* ---------- 3D hero ---------- */
+/* ---------- hero ---------- */
 .room{position:relative;height:100vh;height:100dvh;overflow:hidden;background:radial-gradient(ellipse at 50% 64%,#2a2b2f 0%,#0b0b0d 58%,#030304 100%);perspective:1900px}
-.intro{position:absolute;top:11vh;left:0;right:0;text-align:center;color:#fff;z-index:5;pointer-events:none;padding:0 6vw}
+.intro{position:absolute;top:10vh;left:0;right:0;text-align:center;color:#fff;z-index:6;pointer-events:none;padding:0 6vw}
 .intro h1{margin:0;font-size:clamp(34px,6vw,84px);line-height:.95;letter-spacing:-.03em;font-weight:800}
 .intro p{margin:16px auto 0;max-width:46ch;color:#a3a4a9;font-size:clamp(15px,1.5vw,19px)}
-.shadow{position:absolute;left:50%;top:80%;width:1000px;height:300px;margin:-150px 0 0 -500px;border-radius:50%;background:radial-gradient(ellipse,rgba(0,0,0,.85),transparent 68%)}
-.glow{position:absolute;left:50%;top:70%;width:1100px;height:340px;margin:-170px 0 0 -550px;border-radius:50%;background:radial-gradient(ellipse,rgba(190,195,215,.14),transparent 65%)}
-.rig{position:absolute;left:50%;top:70%;width:0;height:0;transform-style:preserve-3d}
+.glow{position:absolute;left:50%;top:72%;width:1100px;height:340px;margin:-170px 0 0 -550px;border-radius:50%;background:radial-gradient(ellipse,rgba(190,195,215,.15),transparent 65%)}
+.shadow{position:absolute;left:50%;top:82%;width:1000px;height:300px;margin:-150px 0 0 -500px;border-radius:50%;background:radial-gradient(ellipse,rgba(0,0,0,.9),transparent 68%)}
+.liq{position:absolute;left:50%;top:72%;width:min(920px,92vw);height:auto;transform:translate(-50%,-62%);z-index:4;overflow:visible;pointer-events:none}
+.rig{position:absolute;left:50%;top:72%;width:0;height:0;transform-style:preserve-3d}
 .rig *{transform-style:preserve-3d}
 
-/* bottom case: 720 wide, 512 deep, 22 thick, space black aluminium */
+/* bottom case: 720 wide, 512 deep, 22 thick */
 .baseg,.deckg{position:absolute;left:-360px;top:-11px;width:720px;height:22px}
 .baseg>div,.deckg>div{position:absolute;backface-visibility:hidden}
 .th{position:absolute;left:0;top:0;width:0;height:0}
@@ -45,6 +46,8 @@ nav .cta{border:1px solid #fff;padding:9px 20px;border-radius:99px;text-decorati
 .fn{position:absolute;width:122px;height:122px;border-radius:50%;background:url(inside.jpg) no-repeat #0b0b0c;background-size:833.1px 624.1px}
 #f1{left:71px;top:102px;background-position:-138.3px -153.1px}
 #f2{left:528px;top:99px;background-position:-595.1px -150.3px}
+.pl{left:0;top:-245px;width:720px;height:512px;transform:rotateX(90deg) translateZ(9px)}
+.part{position:absolute;background-image:url(inside.jpg);background-size:833.1px 624.1px;background-repeat:no-repeat;background-color:#0c0c0e;box-shadow:0 8px 22px rgba(0,0,0,.7);will-change:transform}
 
 /* top case: keyboard deck */
 .deck{left:0;top:-245px;width:720px;height:512px;border-radius:26px;background:linear-gradient(160deg,#3d3e42 0%,#2b2c2f 45%,#232427 100%);box-shadow:inset 0 0 0 1px #505156,inset 0 0 50px rgba(0,0,0,.4);transform:rotateX(90deg) translateZ(11px)}
@@ -67,7 +70,7 @@ nav .cta{border:1px solid #fff;padding:9px 20px;border-radius:99px;text-decorati
 .lf{background:#020203;padding:9px 9px 14px;border:2px solid #404146;transform:translateZ(1px)}
 .lb{background:url(lid.jpg) -158.8px -88.2px/1037.6px 677.4px no-repeat,linear-gradient(180deg,#5f5e62,#2f2f32 55%,#1c1c1e);box-shadow:inset 0 0 0 1px #6a696d;transform:rotateY(180deg) translateZ(1px)}
 
-/* ---------- Clipchamp-style editor on the notched screen ---------- */
+/* ---------- Clipchamp-style editor ---------- */
 .cc{position:relative;width:100%;height:100%;display:grid;grid-template-columns:62px 1fr 150px;grid-template-rows:16px 28px 1fr 140px;background:#1b1c21;color:#e7e7ea;font-size:9px;border-radius:10px;overflow:hidden;font-family:"Segoe UI",var(--f)}
 .mb{grid-column:1/4;display:flex;align-items:center;justify-content:space-between;padding:0 12px;background:#000;font-size:8px;opacity:.9}
 .notch{position:absolute;top:0;left:50%;width:84px;height:21px;margin-left:-42px;background:#000;border-radius:0 0 11px 11px;z-index:6}
@@ -147,10 +150,34 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;paddin
 
 <header class="room" id="top">
  <div class="intro" id="intro"><h1>Long video in.<br>Short clips out.</h1><p>LOOPFRAME cuts your streams, podcasts and vlogs into captioned 5-second clips that are ready to post.</p></div>
- <div class="glow"></div><div class="shadow" id="sh"></div>
- <div class="rig" id="rig" role="img" aria-label="A space black MacBook Pro opens to a video editor that cuts a video into clips, then its top half lifts off to show the inside">
+ <div class="glow"></div><div class="shadow"></div>
+
+ <!-- 1. liquid laptop -->
+ <svg class="liq" id="liq" viewBox="0 0 800 500" aria-hidden="true">
+  <defs>
+   <linearGradient id="ch" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4c4d54"/><stop offset=".25" stop-color="#111214"/><stop offset=".6" stop-color="#050506"/><stop offset="1" stop-color="#2a2b2f"/></linearGradient>
+   <filter id="lf" x="-25%" y="-25%" width="150%" height="150%">
+    <feTurbulence id="ft" type="fractalNoise" baseFrequency=".01 .014" numOctaves="2" seed="4" result="n"/>
+    <feDisplacementMap id="fd" in="SourceGraphic" in2="n" scale="24" result="d"/>
+    <feGaussianBlur in="d" stdDeviation="4" result="b"/>
+    <feColorMatrix in="b" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -10"/>
+   </filter>
+  </defs>
+  <g filter="url(#lf)" id="lg">
+   <ellipse cx="400" cy="408" rx="340" ry="38" fill="url(#ch)"/>
+   <path d="M205 70Q205 58 217 58L583 58Q595 58 595 70L612 300L188 300Z" fill="url(#ch)"/>
+   <path d="M140 312L660 312L730 362Q736 378 712 380L88 380Q64 378 70 362Z" fill="url(#ch)"/>
+   <path d="M236 92L330 92L270 270L222 270Z" fill="#7a7b82" opacity=".55"/>
+   <path d="M410 92L470 92L380 270L330 270Z" fill="#5a5b61" opacity=".4"/>
+   <path d="M230 330L570 330L585 346L215 346Z" fill="#35363b" opacity=".6"/>
+  </g>
+ </svg>
+
+ <!-- 2. parts and 3. the real laptop -->
+ <div class="rig" id="rig" role="img" aria-label="Liquid metal breaks into laptop parts, which assemble into a MacBook Pro that cuts a video into clips in an editor">
   <div class="baseg">
-   <div class="inside"><i class="fn" id="f1"></i><i class="fn" id="f2"></i></div>
+   <div class="inside" id="ins"><i class="fn" id="f1"></i><i class="fn" id="f2"></i></div>
+   <div class="pl" id="pl"></div>
    <div class="front"></div><div class="back"></div><div class="sl"></div><div class="sr"></div>
   </div>
   <div class="th" id="th">
@@ -218,44 +245,72 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;paddin
 <script>
 (function(){
 var $=function(i){return document.getElementById(i)};
-var room=document.querySelector(".room"),rig=$("rig"),th=$("th"),lid=$("lid"),sh=$("sh"),cc=$("cc"),intro=$("intro"),f1=$("f1"),f2=$("f2"),
- ph=$("ph"),pv=$("pv"),cap=$("cap"),tm=$("tm"),st=$("st"),vt=$("vt"),cl=$("cl"),keys=$("keys");
+var room=document.querySelector(".room"),rig=$("rig"),th=$("th"),lid=$("lid"),cc=$("cc"),intro=$("intro"),f1=$("f1"),f2=$("f2"),ins=$("ins"),pl=$("pl"),
+ liq=$("liq"),ft=$("ft"),fd=$("fd"),ph=$("ph"),pv=$("pv"),cap=$("cap"),tm=$("tm"),st=$("st"),vt=$("vt"),cl=$("cl"),keys=$("keys");
+function c(x,a,b){return Math.max(a,Math.min(b,x))}
+function ease(x){x=c(x,0,1);return x*x*(3-2*x)}
+
 /* keyboard */
 var R=[["esc:1.5","F1","F2","F3","F4","F5","F6","F7","F8","F9","F10","F11","F12","\u25CF:1.5"],
  "`1234567890-=".split("").concat(["delete:2"]),
  ["tab:1.5"].concat("qwertyuiop[]".split(""),["\\:1.5"]),
  ["caps:1.75"].concat("asdfghjkl;'".split(""),["return:2.25"]),
  ["shift:2.25"].concat("zxcvbnm,./".split(""),["shift:2.75"]),
- ["fn","ctrl","opt","cmd:1.25","space:5","cmd:1.25","opt","\u25C0:1.17","\u25B2\u25BC:1.17","\u25B6:1.17"]],
- H=[.62,1,1,1,1,1];
+ ["fn","ctrl","opt","cmd:1.25","space:5","cmd:1.25","opt","\u25C0:1.17","\u25B2\u25BC:1.17","\u25B6:1.17"]],H=[.62,1,1,1,1,1];
 R.forEach(function(row,r){var d=document.createElement("div");d.className="kr";d.style.flex=H[r];
  row.forEach(function(s){var p=s.split(":"),k=document.createElement("div");k.className="k";k.style.setProperty("--w",p[1]||1);k.textContent=p[0];d.appendChild(k)});keys.appendChild(d)});
+
 /* clips */
 var caps=["as you want me to be","I said let's go!","let's walk over there","wait for it…","no way that worked","clip it!"],segs=[],chs=[],i;
 for(i=0;i<6;i++){var s=document.createElement("div");s.className="seg";s.style.setProperty("--h",200+i*45);s.textContent="5s";vt.appendChild(s);segs.push(s);
  var d=document.createElement("div");d.className="c";d.innerHTML="<span>Clip "+(i+1)+"</span><span>0:05</span>";cl.appendChild(d);chs.push(d)}
-function c(x,a,b){return Math.max(a,Math.min(b,x))}
-function ease(x){x=c(x,0,1);return x*x*(3-2*x)}
-var reduce=matchMedia("(prefers-reduced-motion: reduce)").matches,T0=performance.now(),CYCLE=28,vis=true;
+
+/* parts cut from the teardown photo: [left,top,w,h,round, explodeX,explodeY,explodeZ,rot,spin] in case coordinates */
+var P=[[71,102,122,122,1,-330,-60,170,-25,1],[528,99,122,122,1,330,-70,210,30,-1],
+ [55,307,159,195,0,-300,120,110,15,0],[224,311,273,150,0,0,210,280,-10,0],[508,307,163,195,0,310,140,100,-20,0],
+ [226,43,279,150,0,0,-190,240,12,0],[31,193,655,106,0,0,-30,340,5,0],[79,6,561,36,0,0,-300,130,0,0],
+ [16,404,51,85,0,-380,260,70,20,0],[654,400,51,89,0,380,250,90,-18,0]],parts=[];
+P.forEach(function(a){var e=document.createElement("div");e.className="part";
+ e.style.cssText="left:"+a[0]+"px;top:"+a[1]+"px;width:"+a[2]+"px;height:"+a[3]+"px;border-radius:"+(a[4]?"50%":"4px")+";background-position:"+(-67.1-a[0])+"px "+(-50.8-a[1])+"px";
+ pl.appendChild(e);parts.push(e)});
+
+var reduce=matchMedia("(prefers-reduced-motion: reduce)").matches,T0=performance.now(),CYCLE=32,vis=true;
 if("IntersectionObserver" in window)new IntersectionObserver(function(e){vis=e[0].isIntersecting}).observe(room);
+
 function frame(now){
  if(!vis&&!reduce){requestAnimationFrame(frame);return}
- var vw=innerWidth,vh=room.clientHeight,t=reduce?10:((now-T0)/1000)%CYCLE;
+ var vw=innerWidth,vh=room.clientHeight,t=reduce?22:((now-T0)/1000)%CYCLE;
+
+ /* 1. liquid laptop: wobbles, then melts apart (0 - 6s); returns at the end of the loop */
+ var lq=Math.max(1-ease((t-4.4)/1.6),ease((t-29.8)/1.8));
+ liq.style.opacity=lq;
+ ft.setAttribute("baseFrequency",(.01+.003*Math.sin(t*.8))+" "+(.014+.004*Math.cos(t*.6)));
+ fd.setAttribute("scale",24+8*Math.sin(t*1.7)+80*ease((t-3.4)/1.8)*(t<10?1:0)+60*ease((t-29.8)/1.5)*(t>20?1:0)*0);
+
+ /* camera */
  var S=Math.min(vw*.84/860,vh*.6/700);
- /* closed laptop (logo) > opens > edits > closes > top half lifts off to show the inside > returns */
- var op=ease((t-3.4)/2)*(1-ease((t-17)/1.8)),
-     lift=ease((t-19.3)/2.6)*(1-ease((t-25)/2.2)),
-     tv=1-ease((t-3)/2.2)+ease((t-17.2)/2),
-     e=c((t-6.2)/9,0,1);
- var rx=-17-34*tv-6*Math.sin(t*.35)*(1-tv)-lift*8,ry=24*Math.sin(t*.4)+lift*34*Math.sin(t*.6);
+ var tv=1-ease((t-16.6)/2.2)+ease((t-27.4)/1.8);
+ var rx=-17-34*tv-6*Math.sin(t*.35)*(1-tv),ry=24*Math.sin(t*.4);
  rig.style.transform="scale("+S+") rotateX("+rx+"deg) rotateY("+ry+"deg)";
- th.style.transform="translateY("+(-lift*340)+"px)";
- lid.style.transform="rotateX("+(-90+105*op)+"deg)";
- sh.style.opacity=1-lift*.35;
- intro.style.opacity=1-c(lift*3,0,1);
- /* the cooling fans spin once the case is open */
+ var rv=t>4.5&&t<31.4;rig.style.visibility=rv?"visible":"hidden";
+ intro.style.opacity=1-.7*ease((t-4.8)/1)*(1-ease((t-29.4)/1.5));
+
+ /* 2. liquid breaks into parts, floats, then assembles into the case */
+ var u=ease((t-4.6)/2.8),a=ease((t-9.8)/2.8),po=ease((t-4.6)/.9)*(1-ease((t-12.4)/.6));
+ parts.forEach(function(p,k){var q=P[k],cx=q[0]+q[2]/2,cy=q[1]+q[3]/2,sx=360-cx,sy=330-cy,
+  f=1-a,bob=u*f*14*Math.sin(t*1.4+k),
+  dx=(sx*(1-u)+q[5]*u)*f,dy=(sy*(1-u)+q[6]*u)*f,dz=(q[7]*u+bob)*f,
+  rz=q[8]*u*f+q[9]*t*480*f,sc=.12+.88*u;
+  p.style.opacity=po;
+  p.style.transform="translate3d("+dx+"px,"+dy+"px,"+dz+"px) rotateZ("+rz+"deg) scale("+sc+")"});
+ ins.style.opacity=ease((t-12)/.8);
  f1.style.transform="rotate("+(t*900)+"deg)";f2.style.transform="rotate("+(-t*900)+"deg)";
- /* Clipchamp: the playhead cuts the video into 5-second clips */
+
+ /* 3. the top half comes down, the lid opens, the video gets cut, the lid closes */
+ th.style.visibility=(t>12.5&&t<31.4)?"visible":"hidden";
+ th.style.transform="translateY("+(-(1-ease((t-12.6)/2.6))*380)+"px)";
+ var op=ease((t-16.8)/2)*(1-ease((t-27.4)/1.6)),e=c((t-19)/8,0,1);
+ lid.style.transform="rotateX("+(-90+105*op)+"deg)";
  ph.style.left=(e*100)+"%";
  for(var j=0;j<6;j++){var on=e>(j+1)/6-.001&&e>0;segs[j].classList.toggle("cut",on&&j<5||e>=1);chs[j].classList.toggle("on",on)}
  var fi=Math.min(5,Math.floor(e*6));pv.style.setProperty("--h",200+fi*45);cap.textContent=caps[fi];
