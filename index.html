@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 <style>
-:root{--or:#f2570f;--or2:#c2330a;--ye:#ffc619;--bk:#0a0a0a;--pk:#ff2e93;--cr:#fff4d6;--h:Anton,Impact,"Arial Narrow Bold",sans-serif;--b:"Helvetica Neue",Arial,sans-serif}
+:root{--or:#2563ff;--or2:#071a52;--ye:#ffffff;--bk:#05070d;--pk:#a9c8ff;--cr:#e8f0ff;--h:Anton,Impact,"Arial Narrow Bold",sans-serif;--b:"Helvetica Neue",Arial,sans-serif}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--ye);color:var(--bk);font-family:var(--b);line-height:1.5}
@@ -16,7 +16,7 @@ a{color:inherit}
 :focus-visible{outline:3px solid var(--bk);outline-offset:3px}
 .btn{display:inline-block;background:var(--ye);color:var(--bk);font:400 18px/1 var(--h);letter-spacing:.06em;text-transform:uppercase;padding:16px 30px;border-radius:99px;text-decoration:none;border:0;cursor:pointer;pointer-events:auto}
 .btn.k{background:var(--bk);color:var(--ye)}
-nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:16px 4vw;color:#fff;mix-blend-mode:difference;font-family:var(--h);letter-spacing:.08em}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:16px 4vw;color:#fff;background:rgba(5,7,13,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);font-family:var(--h);letter-spacing:.08em}
 nav a{text-decoration:none}
 nav .logo{font-size:26px}
 nav .links{display:flex;gap:28px;font-size:16px}
@@ -24,7 +24,8 @@ nav .links{display:flex;gap:28px;font-size:16px}
 
 /* ---------- story: the laptop spins as you scroll ---------- */
 .story{height:520vh;position:relative}
-.stage{position:sticky;top:0;height:100vh;height:100dvh;overflow:hidden;background:radial-gradient(ellipse at 50% 48%,#ff8a2a 0%,var(--or) 42%,var(--or2) 100%);perspective:1900px}
+.stage{position:sticky;top:0;height:100vh;height:100dvh;overflow:hidden;background:radial-gradient(ellipse at 50% 48%,#12307f 0%,#08174a 45%,#020610 100%);perspective:1900px}
+#water{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0;pointer-events:none}
 .stage::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,transparent 45%,rgba(0,0,0,.45) 100%);pointer-events:none;z-index:4}
 .tx{position:absolute;left:0;right:0;top:13vh;text-align:center;z-index:1;padding:0 4vw;pointer-events:none;will-change:opacity,transform}
 .tx h1,.tx h2{margin:0;font:400 clamp(56px,13.5vw,230px)/.86 var(--h);color:var(--ye);text-transform:uppercase;letter-spacing:-.005em}
@@ -32,7 +33,7 @@ nav .links{display:flex;gap:28px;font-size:16px}
 .tx p{margin:2vh auto 0;max-width:34ch;color:var(--cr);font:600 clamp(15px,1.6vw,22px)/1.3 var(--b)}
 .tx .btn{margin-top:3vh}
 .tx.l0{pointer-events:none}
-.glow{position:absolute;left:50%;top:58%;width:900px;height:900px;margin:-450px 0 0 -450px;border-radius:50%;background:radial-gradient(circle,rgba(255,200,90,.55),transparent 62%);z-index:1}
+.glow{position:absolute;left:50%;top:58%;width:900px;height:900px;margin:-450px 0 0 -450px;border-radius:50%;background:radial-gradient(circle,rgba(70,130,255,.28),transparent 62%);z-index:1;pointer-events:none}
 .floor{position:absolute;left:50%;top:88%;width:900px;height:240px;margin:-120px 0 0 -450px;border-radius:50%;background:radial-gradient(ellipse,rgba(0,0,0,.65),transparent 68%);z-index:1}
 .rig{position:absolute;left:50%;top:60%;width:0;height:0;transform-style:preserve-3d;z-index:3;pointer-events:none}
 .rig *{transform-style:preserve-3d}
@@ -115,11 +116,12 @@ nav .links{display:flex;gap:28px;font-size:16px}
 .how .big{color:var(--ye)}
 .st3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
 .stp{background:var(--or);color:var(--bk);border-radius:24px;padding:30px;min-height:260px;display:flex;flex-direction:column;justify-content:space-between}
-.stp:nth-child(2){background:var(--ye)}.stp:nth-child(3){background:var(--pk)}
+.stp:nth-child(1){color:#fff}.stp:nth-child(2){background:var(--ye)}.stp:nth-child(3){background:var(--pk)}
 .stp b{font:400 clamp(30px,3.2vw,46px)/.95 var(--h);text-transform:uppercase}
 .stp span{font-weight:600;max-width:26ch}
 
 .pk{background:var(--or);padding:16vh 0}
+.pk .big{color:#fff}
 .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
 .plan{background:var(--bk);color:var(--cr);border-radius:24px;padding:34px;display:flex;flex-direction:column}
 .plan.hot{background:var(--ye);color:var(--bk)}
@@ -145,7 +147,7 @@ summary::after{content:"+"}
 details[open] summary::after{content:"\2212"}
 details p{margin:12px 0 0;font-weight:500;max-width:56ch}
 
-footer{background:var(--or);color:var(--bk);padding:8vh 5vw 4vh;overflow:hidden}
+footer{background:var(--or);color:#fff;padding:8vh 5vw 4vh;overflow:hidden}
 footer .mega{font:400 clamp(60px,19vw,330px)/.82 var(--h);text-transform:uppercase;letter-spacing:-.01em;color:var(--ye);margin:0 0 4vh}
 footer .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-weight:700}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
@@ -157,6 +159,7 @@ footer .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;f
 
 <div class="story" id="top">
  <div class="stage" id="stage">
+  <canvas id="water" aria-hidden="true"></canvas>
   <div class="glow"></div><div class="floor"></div>
   <div class="tx" id="t0"><h1>Bold<br>clips</h1><p>Long video in. Captioned 30-60 second hits out.</p><a class="btn k" href="#packages">Get clips</a></div>
   <div class="tx" id="t1"><h2>Unwrap your<br>best moments</h2><p>We watch the whole thing so you don't have to.</p></div>
@@ -185,7 +188,7 @@ footer .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;f
 
 <section class="craft" id="craft"><div class="wrap">
  <div><h2 class="big">Craft &amp; speed</h2>
-  <p>Our editors pick the moments, cut each clip to 30-60 seconds and add captions, B-Roll and audio that match your brand. You send one long video. We send back a batch that is ready to post.</p>
+  <p>Real editors pick the moments, cut each clip to 5 seconds and add captions that match your brand. You send one long video. We send back a batch that is ready to post.</p>
   <a class="btn k" href="#how">How it works</a></div>
  <!-- Full-length clips: clip1.mp4 to clip4.mp4. Laptop 10s cuts: "clip1 (1).mp4" etc. Click a clip for sound. -->
  <div class="coll" aria-label="Example clips">
@@ -316,6 +319,66 @@ cds.forEach(function(cd){
  if(cio)cio.observe(cd);
 });
 $("nf").addEventListener("submit",function(ev){ev.preventDefault();$("nb").textContent="You're on the list"});
+})();
+</script>
+<script>
+/* water: ripples spawn wherever the mouse moves over the hero background */
+(function(){
+var cv=document.getElementById("water"),stage=document.getElementById("stage");
+if(!cv||!stage)return;
+var reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+var gl=null;try{gl=cv.getContext("webgl",{antialias:false,alpha:false})}catch(e){}
+if(!gl)return; /* falls back to the plain dark blue gradient */
+var N=24;
+var VS="attribute vec2 a;void main(){gl_Position=vec4(a,0.,1.);}";
+var FS="precision highp float;uniform vec2 R;uniform float T;uniform vec4 rip["+N+"];"+
+"float H(vec2 p){float h=0.;"+
+" for(int i=0;i<"+N+";i++){vec4 r=rip[i];float age=T-r.z;if(age<0.||age>6.)continue;"+
+"  float d=length(p-r.xy);float x=d-.34*age;"+
+"  h+=r.w*sin(x*88.)*exp(-x*x*150.)*exp(-age*.62)*exp(-d*.7);}"+
+" h+=.018*sin(p.x*7.+T*.6)*sin(p.y*6.-T*.45)+.012*sin((p.x+p.y)*11.+T*.9);"+
+" return h;}"+
+"void main(){vec2 p=(gl_FragCoord.xy-.5*R)/R.y;float e=.0035;"+
+" float dx=(H(p+vec2(e,0.))-H(p-vec2(e,0.)))/(2.*e);float dy=(H(p+vec2(0.,e))-H(p-vec2(0.,e)))/(2.*e);"+
+" vec3 n=normalize(vec3(-dx*.016,-dy*.016,1.));"+
+" vec2 q=p+n.xy*.55;float g=length(q*vec2(.8,1.));"+
+" vec3 deep=vec3(.006,.014,.05),mid=vec3(.045,.15,.5);"+
+" vec3 col=mix(mid,deep,smoothstep(.0,.9,g));"+
+" col+=vec3(.04,.1,.28)*(.5+.5*sin(q.x*5.+q.y*3.5+T*.25))*(1.-smoothstep(0.,.9,g))*.6;"+
+" vec3 L=normalize(vec3(-.45,.55,.7));float spec=pow(max(dot(reflect(-L,n),vec3(0.,0.,1.)),0.),70.);"+
+" float rim=1.-n.z;"+
+" col+=vec3(.3,.58,1.)*rim*3.6;col+=vec3(1.)*spec*2.2;col+=vec3(.9,.95,1.)*pow(rim,2.)*6.;"+
+" col*=1.-.4*dot(p,p);gl_FragColor=vec4(col,1.);}";
+function sh(t,s){var o=gl.createShader(t);gl.shaderSource(o,s);gl.compileShader(o);
+ if(!gl.getShaderParameter(o,gl.COMPILE_STATUS)){console.error(gl.getShaderInfoLog(o));return null}return o}
+var vs=sh(gl.VERTEX_SHADER,VS),fs=sh(gl.FRAGMENT_SHADER,FS);if(!vs||!fs)return;
+var pr=gl.createProgram();gl.attachShader(pr,vs);gl.attachShader(pr,fs);gl.linkProgram(pr);
+if(!gl.getProgramParameter(pr,gl.LINK_STATUS))return;gl.useProgram(pr);
+var bf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,bf);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
+var al=gl.getAttribLocation(pr,"a");gl.enableVertexAttribArray(al);gl.vertexAttribPointer(al,2,gl.FLOAT,false,0,0);
+var uR=gl.getUniformLocation(pr,"R"),uT=gl.getUniformLocation(pr,"T"),uRip=gl.getUniformLocation(pr,"rip");
+var data=new Float32Array(N*4),idx=0,t0=performance.now(),vis=true,W=1,H=1;
+for(var k=0;k<N;k++)data[k*4+2]=-100;
+function now(){return(performance.now()-t0)/1000}
+function size(){var s=innerWidth<800?.5:.6;W=Math.max(2,Math.round(stage.clientWidth*s));H=Math.max(2,Math.round(stage.clientHeight*s));cv.width=W;cv.height=H;gl.viewport(0,0,W,H)}
+size();addEventListener("resize",size);
+function drop(cx,cy,amp){
+ var r=stage.getBoundingClientRect();if(!r.height)return;
+ data[idx*4]=((cx-r.left)-r.width/2)/r.height;data[idx*4+1]=-((cy-r.top)-r.height/2)/r.height;
+ data[idx*4+2]=now();data[idx*4+3]=amp;idx=(idx+1)%N;
+}
+var lx=-999,ly=-999,lt=0;
+addEventListener("pointermove",function(e){
+ var r=stage.getBoundingClientRect();if(e.clientY<r.top||e.clientY>r.bottom||reduce)return;
+ var dx=e.clientX-lx,dy=e.clientY-ly,d=Math.sqrt(dx*dx+dy*dy),tm=performance.now();
+ if(d>10&&tm-lt>22){drop(e.clientX,e.clientY,Math.min(1,d/60)*.9+.45);lx=e.clientX;ly=e.clientY;lt=tm}
+},{passive:true});
+/* a gentle drop now and then, so the water is alive even with no mouse (and on phones) */
+function idle(){if(vis&&!reduce){var r=stage.getBoundingClientRect();drop(r.left+Math.random()*r.width,r.top+Math.random()*r.height,.55)}}
+setInterval(idle,2600);setTimeout(idle,600);
+if("IntersectionObserver" in window)new IntersectionObserver(function(e){vis=e[0].isIntersecting}).observe(stage);
+function draw(){gl.uniform2f(uR,W,H);gl.uniform1f(uT,now());gl.uniform4fv(uRip,data);gl.drawArrays(gl.TRIANGLES,0,3)}
+(function loop(){if(vis||reduce)draw();if(!reduce)requestAnimationFrame(loop)})();
 })();
 </script>
 </body>
