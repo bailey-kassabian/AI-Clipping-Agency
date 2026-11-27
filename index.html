@@ -14,8 +14,6 @@ a{color:inherit}
 :focus-visible{outline:3px solid #7a7b80;outline-offset:3px}
 .btn{display:inline-block;background:var(--ink);color:#fff;padding:14px 28px;border-radius:99px;font-weight:700;text-decoration:none}
 .btn.w{background:#f4f4f2;color:#0b0b0c}
-
-/* nav */
 nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:18px 5vw;color:#fff;mix-blend-mode:difference}
 nav .logo{font-weight:800;letter-spacing:.2em;text-decoration:none}
 nav .links{display:flex;gap:30px;font-size:14px;letter-spacing:.08em}
@@ -23,29 +21,70 @@ nav .links a{text-decoration:none}
 nav .cta{border:1px solid #fff;padding:9px 20px;border-radius:99px;text-decoration:none;font-size:14px}
 @media(max-width:760px){nav .links{display:none}}
 
-/* hero animation */
-.room{position:relative;height:100vh;height:100dvh;overflow:hidden;background:radial-gradient(ellipse at 50% 55%,#15161a 0%,#030304 65%)}
-.intro{position:absolute;top:13vh;left:0;right:0;text-align:center;color:#fff;z-index:5;pointer-events:none;padding:0 6vw}
+/* 3D hero */
+.room{position:relative;height:100vh;height:100dvh;overflow:hidden;background:radial-gradient(ellipse at 50% 60%,#1a1b20 0%,#030304 68%);perspective:1800px}
+.intro{position:absolute;top:12vh;left:0;right:0;text-align:center;color:#fff;z-index:5;pointer-events:none;padding:0 6vw}
 .intro h1{margin:0;font-size:clamp(34px,6vw,84px);line-height:.95;letter-spacing:-.03em;font-weight:800}
 .intro p{margin:16px auto 0;max-width:46ch;color:#a3a4a9;font-size:clamp(15px,1.5vw,19px)}
-.lap{position:absolute;left:50%;top:60%;width:1300px;height:830px;margin:-395px 0 0 -650px;transform-origin:650px 395px;will-change:transform}
-.lid{position:absolute;left:30px;top:0;width:1240px;height:790px;padding:20px;background:#050506;border:2px solid #34353a;border-radius:26px 26px 6px 6px;box-shadow:0 0 120px rgba(255,255,255,.12)}
-.base{position:absolute;left:-50px;top:790px;width:1400px;height:40px;border-radius:0 0 40px 40px;background:linear-gradient(#a9acb5,#5d606b)}
-.base::before{content:"";position:absolute;left:50%;top:0;width:220px;height:10px;margin-left:-110px;background:#3d3f48;border-radius:0 0 14px 14px}
-.site{position:relative;width:1200px;height:750px;overflow:hidden;border-radius:6px;background:radial-gradient(ellipse at 60% 70%,#fff 0%,#e3e4e5 55%,#c9cacc 100%);color:#0b0b0c}
-.snav{position:absolute;top:0;left:0;right:0;height:80px;display:flex;align-items:center;justify-content:space-between;padding:0 60px;font-size:15px;letter-spacing:.14em}
-.snav b{font-size:22px;letter-spacing:.2em}
-.snav span{opacity:.6}
-.snav i{font-style:normal;background:#0b0b0c;color:#fff;padding:12px 26px;border-radius:99px;letter-spacing:.06em}
-.site h2{position:absolute;left:60px;bottom:140px;margin:0;font-size:74px;line-height:.94;font-weight:800;letter-spacing:-.03em}
-.go{position:absolute;left:60px;bottom:80px;background:#0b0b0c;color:#fff;padding:14px 28px;font-weight:700;font-size:15px}
-.site svg{position:absolute;left:330px;top:90px;width:820px;height:547px}
+.shadow{position:absolute;left:50%;top:76%;width:900px;height:260px;margin:-130px 0 0 -450px;border-radius:50%;background:radial-gradient(ellipse,rgba(255,255,255,.14),transparent 65%)}
+.rig{position:absolute;left:50%;top:66%;width:0;height:0;transform-style:preserve-3d}
+.rig *{transform-style:preserve-3d}
+.baseg{position:absolute;left:-360px;top:-11px;width:720px;height:22px}
+.baseg>div{position:absolute;background:linear-gradient(#b9bcc6,#6a6d78);backface-visibility:hidden}
+.top{left:0;top:-229px;width:720px;height:480px;border-radius:14px;background:#a7aab4!important;transform:rotateX(90deg) translateZ(11px)}
+.top .keys{position:absolute;left:34px;right:34px;top:26px;height:260px;border-radius:8px;background-color:#1d1e21;background-image:repeating-linear-gradient(90deg,transparent 0 44px,#0b0b0c 44px 49px),repeating-linear-gradient(0deg,transparent 0 46px,#0b0b0c 46px 51px)}
+.top .pad{position:absolute;left:260px;width:200px;top:310px;height:130px;border-radius:10px;background:#8f929c;border:2px solid #7a7d87}
+.front{left:0;top:0;width:720px;height:22px;transform:translateZ(240px)}
+.back{left:0;top:0;width:720px;height:22px;transform:rotateY(180deg) translateZ(240px)}
+.sl{left:120px;top:0;width:480px;height:22px;transform:rotateY(-90deg) translateZ(360px)}
+.sr{left:120px;top:0;width:480px;height:22px;transform:rotateY(90deg) translateZ(360px)}
+.lidg{position:absolute;left:-360px;top:0;width:720px;height:0;transform:translate3d(0,-11px,-240px)}
+.lid{position:absolute;left:0;top:-450px;width:720px;height:450px;transform-origin:50% 100%}
+.lid>div{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px 16px 4px 4px}
+.lf{background:#050506;padding:12px;border:2px solid #3a3b40;transform:translateZ(1px)}
+.lb{background:linear-gradient(135deg,#d3d5dc,#7d808b 55%,#b6b9c3);transform:rotateY(180deg) translateZ(1px)}
+.lb::after{content:"";position:absolute;left:50%;top:50%;width:60px;height:60px;margin:-30px;border-radius:50%;border:6px solid #3a3b40;opacity:.55}
+.fan,.chip{position:absolute;left:-45px;top:-45px;width:90px;height:90px}
+.fan{border-radius:50%;background:conic-gradient(#2a2b2e 0 12%,#9a9ba0 12% 25%,#2a2b2e 25% 37%,#9a9ba0 37% 50%,#2a2b2e 50% 62%,#9a9ba0 62% 75%,#2a2b2e 75% 87%,#9a9ba0 87%);border:6px solid #3a3b40}
+.chip{left:-35px;top:-35px;width:70px;height:70px;border-radius:8px;background:#0b0b0c;border:4px solid #9a9ba0}
+
+/* Clipchamp-style editor */
+.cc{position:relative;width:100%;height:100%;display:grid;grid-template-columns:62px 1fr 150px;grid-template-rows:30px 1fr 140px;background:#1b1c21;color:#e7e7ea;font-size:9px;border-radius:6px;overflow:hidden;font-family:"Segoe UI",var(--f)}
+.cc .bar{grid-column:1/4;display:flex;align-items:center;justify-content:space-between;padding:0 10px;background:#111216;border-bottom:1px solid #2a2b32}
+.cc .bar b{display:flex;gap:6px;align-items:center;font-size:11px}
+.cc .bar b i{width:14px;height:14px;border-radius:4px;background:linear-gradient(135deg,#8f6bff,#4b5cf5)}
+.cc .bar em{font-style:normal;opacity:.7}
+.cc .bar u{text-decoration:none;background:#6d5bf7;color:#fff;padding:4px 12px;border-radius:5px;font-weight:700}
+.cc .rail{background:#14151a;padding:8px 0;display:flex;flex-direction:column;gap:9px;align-items:center;border-right:1px solid #2a2b32}
+.cc .rail span{display:block;text-align:center;opacity:.7;font-size:8px}
+.cc .rail span::before{content:"";display:block;width:16px;height:16px;margin:0 auto 2px;border-radius:4px;background:#34353d}
+.cc .rail .on{opacity:1}.cc .rail .on::before{background:#6d5bf7}
+.cc .stg{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:8px}
+.pv{position:relative;height:196px;aspect-ratio:16/9;border-radius:5px;overflow:hidden;background:linear-gradient(160deg,hsl(var(--h,200) 35% 38%),hsl(calc(var(--h,200) + 40) 30% 14%))}
+.pv::before{content:"";position:absolute;left:30%;bottom:-20%;width:22%;height:70%;border-radius:40% 40% 0 0;background:rgba(0,0,0,.55)}
+.pv::after{content:"";position:absolute;left:52%;bottom:-20%;width:20%;height:62%;border-radius:40% 40% 0 0;background:rgba(0,0,0,.4)}
+.pv p{position:absolute;left:0;right:0;bottom:14px;margin:0;text-align:center;font-weight:800;font-size:13px;color:#fff;text-shadow:0 2px 0 #000,0 0 6px #000;z-index:2}
+.ctl{opacity:.7}
+.pan{background:#14151a;border-left:1px solid #2a2b32;padding:8px;overflow:hidden}
+.pan h4{margin:0 0 6px;font-size:9px;opacity:.7}
+.pan div.c{display:flex;justify-content:space-between;background:#23242b;border-radius:5px;padding:5px 7px;margin-bottom:4px;opacity:0;transition:opacity .3s}
+.pan div.c.on{opacity:1}
+.tlw{grid-column:1/4;background:#14151a;border-top:1px solid #2a2b32;padding:6px 10px;position:relative}
+.rul{display:flex;justify-content:space-between;opacity:.55;margin:2px 0 4px}
+.trk{position:relative}
+.vt{display:flex;height:48px}
+.seg{flex:1;margin-right:0;border-radius:4px;transition:margin .3s;display:flex;align-items:flex-end;justify-content:center;font-weight:800;font-size:9px;color:transparent;background:linear-gradient(135deg,hsl(var(--h) 35% 42%),hsl(calc(var(--h) + 40) 30% 22%))}
+.seg.cut{margin-right:5px;color:#fff}
+.at{height:22px;margin-top:5px;border-radius:4px;background:repeating-linear-gradient(90deg,#3a8f7a 0 2px,transparent 2px 5px);opacity:.55}
+.ph{position:absolute;top:-4px;bottom:-4px;width:2px;background:#fff;z-index:3}
+.ph::before{content:"";position:absolute;top:0;left:-4px;width:10px;height:8px;background:#6d5bf7;border-radius:2px}
+.st{margin-top:6px;opacity:.7}
 
 /* sections */
 .pg{padding:14vh 6vw;max-width:1240px;margin:0 auto}
 h2.t{font-size:clamp(32px,4.6vw,60px);line-height:1;letter-spacing:-.03em;margin:0 0 48px;font-weight:800;max-width:17ch}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:40px}
-.grid h3{margin:0 0 10px;font-size:24px;letter-spacing:-.01em}
+.grid h3{margin:0 0 10px;font-size:24px}
 .grid p{margin:0;color:var(--mut);max-width:34ch}
 .who{display:flex;flex-wrap:wrap;gap:12px;margin-top:44px}
 .who span{border:1px solid var(--line);padding:10px 20px;border-radius:99px;font-weight:600}
@@ -55,7 +94,6 @@ h2.t{font-size:clamp(32px,4.6vw,60px);line-height:1;letter-spacing:-.03em;margin
 .steps b{display:block;font-size:24px}
 .steps span{color:var(--mut)}
 .dark{background:#0b0b0c;color:#f1f1ef}
-.dark .pg{padding-top:14vh}
 .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
 .plan{background:var(--card);border:1px solid #2c2d30;border-radius:20px;padding:34px;display:flex;flex-direction:column}
 .plan.hot{background:#f4f4f2;color:#0b0b0c}
@@ -86,36 +124,26 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;paddin
 </nav>
 
 <header class="room" id="top">
- <div class="intro" id="intro"><h1>Long video in.<br>Short clips out.</h1><p>LOOPFRAME cuts your streams, podcasts and vlogs into captioned 5-second clips that are ready to post.</p></div>
- <div class="lap" id="lap">
-  <div class="lid"><div class="site">
-   <div class="snav"><b>LOOPFRAME</b><span>CLIPS &nbsp;&nbsp; PRICING &nbsp;&nbsp; CONTACT</span><i>Get clips</i></div>
-   <h2>CLIP LIKE<br>YOU MEAN IT</h2>
-   <div class="go">SEE THE CLIPS</div>
-   <svg viewBox="0 0 600 400" role="img" aria-label="Liquid metal forms into a laptop that cuts a video into clips">
-    <defs>
-     <filter id="goo"><feGaussianBlur stdDeviation="3.5"/><feColorMatrix values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -9"/></filter>
-     <linearGradient id="bk" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2a2b2e"/><stop offset=".5" stop-color="#050506"/><stop offset="1" stop-color="#18191b"/></linearGradient>
-    </defs>
-    <g filter="url(#goo)"><ellipse id="pud" cx="300" cy="335" rx="210" ry="26" fill="url(#bk)"/><path id="bump" d="M200 335 Q300 255 400 335Z" fill="url(#bk)"/></g>
-    <ellipse cx="270" cy="327" rx="95" ry="5" fill="#fff" opacity=".22"/>
-    <g id="emb" fill="none" stroke="#cfd0d4" stroke-width="7"><circle r="34"/><path d="M-10-16L18 0-10 16Z" fill="#cfd0d4" stroke="none"/></g>
-    <g id="hand" fill="url(#bk)"><path d="M252 340C246 270 258 232 290 218L352 218C378 230 384 272 368 340Z"/>
-     <rect x="256" y="140" width="24" height="96" rx="12" transform="rotate(-8 268 236)"/><rect x="284" y="124" width="24" height="108" rx="12"/><rect x="312" y="128" width="24" height="106" rx="12"/><rect x="340" y="144" width="23" height="92" rx="11.5" transform="rotate(10 351 236)"/><rect x="222" y="214" width="24" height="84" rx="12" transform="rotate(-52 234 290)"/>
-     <path d="M292 150V222M320 150V222" stroke="#fff" stroke-opacity=".22" stroke-width="3" fill="none"/></g>
-    <g id="spk" filter="url(#goo)" fill="#0a0a0b"></g>
-    <g id="lapfx">
-     <g id="lbase"><path d="M150 300H450L492 336H108Z" fill="#17181a"/><path d="M150 300H450L458 307H142Z" fill="#3a3b40"/><rect x="226" y="314" width="148" height="9" rx="4" fill="#2a2b2e"/></g>
-     <g id="fan"><circle cx="230" cy="318" r="22" fill="#2a2b2e"/><path d="M230 318l14-12M230 318l-14 12M230 318l12 14M230 318l-12-14" stroke="#9a9ba0" stroke-width="5"/></g>
-     <g id="chip"><rect x="376" y="304" width="40" height="40" rx="5" fill="#0b0b0c" stroke="#9a9ba0" stroke-width="3"/></g>
-     <g id="scr"><rect x="170" y="112" width="260" height="190" rx="10" fill="#050506" stroke="#34353a" stroke-width="3"/>
-      <rect x="180" y="122" width="240" height="170" fill="#111214"/><rect x="180" y="122" width="240" height="14" fill="#0a0a0b"/><rect x="368" y="126" width="46" height="7" rx="3" fill="#f4f4f2"/>
-      <rect x="190" y="142" width="130" height="74" rx="5" fill="#3a3b40"/><path d="M240 160l30 19-30 19Z" fill="#f4f4f2"/>
-      <g id="ui"></g></g>
-    </g>
-   </svg>
+ <div class="intro"><h1>Long video in.<br>Short clips out.</h1><p>LOOPFRAME cuts your streams, podcasts and vlogs into captioned 5-second clips that are ready to post.</p></div>
+ <div class="shadow" id="sh"></div>
+ <div class="rig" id="rig" role="img" aria-label="A 3D laptop assembles, opens and cuts a video into clips in Clipchamp">
+  <div class="fan" id="fan"></div><div class="chip" id="chip"></div>
+  <div class="baseg" id="baseg">
+   <div class="top"><div class="keys"></div><div class="pad"></div></div>
+   <div class="front"></div><div class="back"></div><div class="sl"></div><div class="sr"></div>
+  </div>
+  <div class="lidg" id="lidg"><div class="lid" id="lid">
+   <div class="lf"><div class="cc" id="cc">
+    <div class="bar"><b><i></i>Clipchamp</b><em>Untitled video</em><u>Export</u></div>
+    <div class="rail"><span class="on">Your media</span><span>Record</span><span>Library</span><span>Text</span><span>Transitions</span><span>Brand kit</span></div>
+    <div class="stg"><div class="pv" id="pv"><p id="cap">as you want me to be</p></div><div class="ctl" id="tm">0:00 / 0:30</div></div>
+    <div class="pan"><h4>Clips</h4><div id="cl"></div></div>
+    <div class="tlw"><div class="rul"><span>0:00</span><span>0:05</span><span>0:10</span><span>0:15</span><span>0:20</span><span>0:25</span><span>0:30</span></div>
+     <div class="trk"><div class="vt" id="vt"></div><div class="at"></div><i class="ph" id="ph"></i></div>
+     <div class="st" id="st">Finding the best moments…</div></div>
+   </div></div>
+   <div class="lb"></div>
   </div></div>
-  <div class="base"></div>
  </div>
 </header>
 
@@ -129,7 +157,6 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;paddin
   </div>
   <div class="who"><span>Streamers</span><span>Podcasters</span><span>YouTubers</span><span>Coaches</span><span>Brands</span></div>
  </section>
-
  <section class="pg" id="process">
   <h2 class="t">How it works</h2>
   <ol class="steps">
@@ -138,19 +165,15 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;paddin
    <li><b>Clips arrive in 48 hours</b><span>Download them, or let us post them for you.</span></li>
   </ol>
  </section>
-
- <div class="dark" id="packages">
-  <section class="pg">
-   <h2 class="t">Packages</h2>
-   <!-- Prices are placeholders: replace with your real packages -->
-   <div class="plans">
-    <div class="plan"><h3>Starter</h3><div class="pr">$299<small>/month</small></div><ul><li>20 clips a month</li><li>Captions included</li><li>48-hour delivery</li></ul><a class="btn w" href="#contact">Choose Starter</a></div>
-    <div class="plan hot"><h3>Growth</h3><div class="pr">$699<small>/month</small></div><ul><li>60 clips a month</li><li>Captions and hooks</li><li>Posting included</li></ul><a class="btn" href="#contact">Choose Growth</a></div>
-    <div class="plan"><h3>Studio</h3><div class="pr">Custom</div><ul><li>Daily clips</li><li>Dedicated editor</li><li>Multi-channel posting</li></ul><a class="btn w" href="#contact">Talk to us</a></div>
-   </div>
-  </section>
- </div>
-
+ <div class="dark" id="packages"><section class="pg">
+  <h2 class="t">Packages</h2>
+  <!-- Prices are placeholders: replace with your real packages -->
+  <div class="plans">
+   <div class="plan"><h3>Starter</h3><div class="pr">$299<small>/month</small></div><ul><li>20 clips a month</li><li>Captions included</li><li>48-hour delivery</li></ul><a class="btn w" href="#contact">Choose Starter</a></div>
+   <div class="plan hot"><h3>Growth</h3><div class="pr">$699<small>/month</small></div><ul><li>60 clips a month</li><li>Captions and hooks</li><li>Posting included</li></ul><a class="btn" href="#contact">Choose Growth</a></div>
+   <div class="plan"><h3>Studio</h3><div class="pr">Custom</div><ul><li>Daily clips</li><li>Dedicated editor</li><li>Multi-channel posting</li></ul><a class="btn w" href="#contact">Talk to us</a></div>
+  </div>
+ </section></div>
  <section class="pg" id="faq">
   <h2 class="t">Questions</h2>
   <details><summary>How long is each clip?</summary><p>Every clip is 5 seconds. If you need longer cuts, tell us and we will quote a custom package.</p></details>
@@ -159,7 +182,6 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;paddin
   <details><summary>Can you post the clips for me?</summary><p>Yes. The Growth and Studio packages include scheduling to your accounts.</p></details>
  </section>
 </main>
-
 <div class="dark">
  <div class="end" id="contact"><h2>Send us your longest video.</h2><a class="btn w" href="mailto:hello@loopframe.example">Email LOOPFRAME</a></div>
  <footer><span>LOOPFRAME</span><span>Clipping agency</span></footer>
@@ -167,58 +189,42 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;paddin
 
 <script>
 (function(){
-var NS="http://www.w3.org/2000/svg",$=function(i){return document.getElementById(i)};
-var room=document.querySelector(".room"),lap=$("lap"),intro=$("intro"),spk=$("spk"),ui=$("ui"),emb=$("emb"),hand=$("hand"),bump=$("bump"),pud=$("pud"),lbase=$("lbase"),fan=$("fan"),chip=$("chip"),scr=$("scr"),lapfx=$("lapfx");
+var $=function(i){return document.getElementById(i)};
+var room=document.querySelector(".room"),rig=$("rig"),baseg=$("baseg"),lidg=$("lidg"),lid=$("lid"),fan=$("fan"),chip=$("chip"),sh=$("sh"),cc=$("cc"),
+ ph=$("ph"),pv=$("pv"),cap=$("cap"),tm=$("tm"),st=$("st"),vt=$("vt"),cl=$("cl");
+var caps=["as you want me to be","I said let's go!","let's walk over there","wait for it…","no way that worked","clip it!"],segs=[],chs=[],i;
+for(i=0;i<6;i++){var s=document.createElement("div");s.className="seg";s.style.setProperty("--h",200+i*45);s.textContent="5s";vt.appendChild(s);segs.push(s);
+ var d=document.createElement("div");d.className="c";d.innerHTML="<span>Clip "+(i+1)+"</span><span>0:05</span>";cl.appendChild(d);chs.push(d)}
 function c(x,a,b){return Math.max(a,Math.min(b,x))}
 function ease(x){x=c(x,0,1);return x*x*(3-2*x)}
-function w(t,a,b,d,e){return ease((t-a)/(b-a))*(1-ease((t-d)/(e-d)))}
-/* ferrofluid spikes */
-var sp=[],i;
-for(i=0;i<44;i++){var a=(-84+i*(168/43))*Math.PI/180,L=70+((i*37)%11)*11+(i%2?25:0),
- x=300+Math.sin(a)*150,tx=300+Math.sin(a)*(150+L*.55),ty=335-Math.cos(a)*L*1.3;
- var p=document.createElementNS(NS,"path");p.setAttribute("d","M"+(x-6)+" 335L"+tx+" "+ty+"L"+(x+6)+" 335Z");p.style.transformOrigin=x+"px 335px";spk.appendChild(p);sp.push(p)}
-/* editor clips: six blocks, 5 seconds each */
-function mk(n,o){var e=document.createElementNS(NS,n);for(var k in o)e.setAttribute(k,o[k]);ui.appendChild(e);return e}
-var blk=[];
-for(i=0;i<6;i++){blk.push(mk("rect",{x:190+i*38,y:246,width:34,height:30,rx:4,fill:"#f4f4f2"}));
- var tt=mk("text",{x:207+i*38,y:265,"font-size":11,"font-weight":800,"text-anchor":"middle",fill:"#0b0b0c"});tt.textContent="5s";blk.push(tt)}
-var ph=mk("rect",{y:226,width:2,height:56,fill:"#fff"});
-var reduce=matchMedia("(prefers-reduced-motion: reduce)").matches,T0=performance.now(),CYCLE=24,vis=true;
+var reduce=matchMedia("(prefers-reduced-motion: reduce)").matches,T0=performance.now(),CYCLE=22,vis=true;
 if("IntersectionObserver" in window)new IntersectionObserver(function(e){vis=e[0].isIntersecting}).observe(room);
 function frame(now){
  if(!vis&&!reduce){requestAnimationFrame(frame);return}
- var vw=innerWidth,vh=room.clientHeight,t=reduce?17:((now-T0)/1000)%CYCLE;
- /* camera: push into the laptop screen, pull back out */
- var s0=Math.min(vw*.78/1300,vh*.58/830),s1=vw<vh?vw/1200:Math.max(vw/1200,vh/750)*1.02;
- var z=ease((t-2)/3.2)*(1-ease((t-21)/2.4));
- lap.style.transform="scale("+s0*Math.pow(s1/s0,z)+")";
- intro.style.opacity=1-c(z*3,0,1);
- /* liquid puddle and mound */
- pud.setAttribute("rx",210-w(t,14,17,21,24)*110);
- bump.style.transformOrigin="300px 335px";
- bump.style.transform="scaleY("+(.35+.65*w(t,5,6.5,9,10.5)+.4*w(t,9,10.5,11,12))+") scaleX("+(1-.55*ease((t-15)/2))+")";
- /* logo: lies beside the puddle, then stands on the mound */
- var up=ease((t-9)/1.4)*(1-ease((t-11)/.8));
- emb.setAttribute("transform","translate("+(470-170*up)+","+(338-170*up)+") scale(1,"+(.28+.72*up)+")");
- emb.style.opacity=w(t,4.5,5.5,11,11.8)+w(t,20.5,22,99,100)*(1-up);
- /* hand rises */
- hand.style.opacity=w(t,6.3,7,8.8,9.4);
- hand.style.transform="translateY("+(190*(1-ease((t-6.3)/1.6)))+"px)";
- /* ferrofluid spikes */
- var g=w(t,10.8,11.8,13,13.8);
- sp.forEach(function(p,i){p.style.transform="scaleY("+(g*(.8+.2*Math.sin(t*5+i)))+")"});
- /* laptop assembles */
- var k=ease((t-13)/2.4);
- lapfx.style.opacity=w(t,12.8,13.5,19.5,20.5);
- lbase.setAttribute("transform","translate(0,"+(70*(1-k))+")");
- scr.setAttribute("transform","translate(0,"+(-170*(1-k))+")");
- fan.setAttribute("transform","translate("+(-170*(1-k))+","+(-70*(1-k))+")");
- chip.setAttribute("transform","translate("+(170*(1-k))+","+(-90*(1-k))+")");
- fan.style.opacity=chip.style.opacity=1-ease((t-14.8)/.8);
- /* the video is cut into 5-second clips */
- var e=c((t-16)/7,0,1);ph.setAttribute("x",190+e*226);
- for(var j=0;j<6;j++){blk[j*2].style.opacity=blk[j*2+1].style.opacity=e>(j+.5)/6?1:.18}
- ui.style.opacity=ease((t-15.5)/.8);
+ var vw=innerWidth,vh=room.clientHeight,t=reduce?12:((now-T0)/1000)%CYCLE;
+ var S=Math.min(vw*.84/860,vh*.62/600);
+ /* assemble, open, edit, close, disassemble */
+ var q=ease((t-1.5)/2.5)*(1-ease((t-19.5)/2)),
+     op=ease((t-4.2)/1.8)*(1-ease((t-17.5)/1.6)),
+     e=c((t-6.5)/9,0,1),n=1-q;
+ var ry=28*Math.sin(t*.45)+n*40*Math.sin(t*.9),rx=-17-7*Math.sin(t*.35)-n*10;
+ rig.style.transform="scale("+S+") rotateX("+rx+"deg) rotateY("+ry+"deg)";
+ baseg.style.transform="translateY("+(n*150+Math.sin(t*2)*10*n)+"px)";
+ lidg.style.transform="translate3d(0,"+(-11-n*250+Math.sin(t*2+1)*12*n)+"px,-240px)";
+ lid.style.transform="rotateX("+(-90+105*op)+"deg)";
+ var fo=1-ease((q-.7)/.25);
+ fan.style.opacity=chip.style.opacity=fo;
+ fan.style.transform="translate3d("+(-120-90*n)+"px,"+(-8-70*n+Math.sin(t*2.3)*10*n)+"px,"+(30+50*n)+"px) rotateX(90deg) rotateZ("+(t*220)+"deg)";
+ chip.style.transform="translate3d("+(130+80*n)+"px,"+(-8-110*n+Math.sin(t*1.9)*10*n)+"px,"+(-30-40*n)+"px) rotateX(90deg) rotateZ("+(t*40)+"deg)";
+ sh.style.transform="scale("+(1+n*.3)+")";sh.style.opacity=.6+.4*q;
+ /* Clipchamp: playhead cuts the video into 5-second clips */
+ cc.style.opacity=op>.3?1:0;
+ ph.style.left=(e*100)+"%";
+ var k=0;
+ for(var j=0;j<6;j++){var on=e>(j+1)/6-.001&&e>0;segs[j].classList.toggle("cut",on&&j<5||e>=1);chs[j].classList.toggle("on",on);if(on)k++}
+ var fi=Math.min(5,Math.floor(e*6));pv.style.setProperty("--h",200+fi*45);cap.textContent=caps[fi];
+ var sec=Math.round(e*30);tm.textContent="0:"+(sec<10?"0":"")+sec+" / 0:30";
+ st.textContent=e>=1?"6 clips, 5 seconds each, ready to export":e>0?"Splitting into 5-second clips…":"Finding the best moments…";
  if(!reduce)requestAnimationFrame(frame)}
 requestAnimationFrame(frame);
 })();
