@@ -132,6 +132,20 @@ nav .links{display:flex;gap:28px;font-size:16px}
 .plan .btn{text-align:center}
 .plan.hot .btn{background:var(--bk);color:var(--ye)}
 
+
+.rev{padding:16vh 0;background:var(--ye)}
+.rev .sub{max-width:44ch;font-weight:500;font-size:clamp(17px,1.6vw,22px);margin:0 0 6vh}
+.rg{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.rc{background:var(--bk);color:var(--cr);border-radius:24px;padding:30px;display:flex;flex-direction:column;gap:18px;min-height:280px}
+.rc:nth-child(2){background:var(--or);color:#fff}
+.rc .stars{color:#fff;letter-spacing:.2em;font-size:18px}
+.rc q{quotes:none;font-weight:600;font-size:18px;line-height:1.4;flex:1}
+.rc .who{display:flex;align-items:center;gap:12px}
+.rc .av{width:44px;height:44px;border-radius:50%;background:var(--pk);color:var(--bk);display:grid;place-items:center;font:400 20px/1 var(--h)}
+.rc .who b{display:block;font:400 18px/1.1 var(--h);letter-spacing:.04em;text-transform:uppercase}
+.rc .who span{font-size:13px;opacity:.7}
+.rc.ph2{border:3px dashed var(--or);background:transparent;color:var(--bk)}
+.rc.ph2 .stars{color:var(--or)}
 .nl{padding:14vh 0}
 .nl .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:5vw;align-items:center}
 .nlc{background:var(--pk);border-radius:28px;padding:clamp(26px,4vw,50px);color:var(--bk)}
@@ -155,7 +169,7 @@ footer .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;f
 </head>
 <body>
 
-<nav><a class="logo" href="#top">LOOPFRAME</a><div class="links"><a href="#craft">Clips</a><a href="#how">How it works</a><a href="#packages">Packages</a><a href="#join">Updates</a></div><a href="#packages">Get clips</a></nav>
+<nav><a class="logo" href="#top">LOOPFRAME</a><div class="links"><a href="#craft">Clips</a><a href="#how">How it works</a><a href="#packages">Packages</a><a href="#reviews">Reviews</a><a href="#join">Updates</a></div><a href="#packages">Get clips</a></nav>
 
 <div class="story" id="top">
  <div class="stage" id="stage">
@@ -188,7 +202,7 @@ footer .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;f
 
 <section class="craft" id="craft"><div class="wrap">
  <div><h2 class="big">Craft &amp; speed</h2>
-  <p>Our editors pick the perfect moments, cut each clip to 30-60 seconds and add captions, B-Roll and audio that match your brand and reach your goals. You send one long video. We send back a batch that is ready to post.</p>
+  <p>Real editors pick the moments, cut each clip to 5 seconds and add captions that match your brand. You send one long video. We send back a batch that is ready to post.</p>
   <a class="btn k" href="#how">How it works</a></div>
  <!-- Full-length clips: clip1.mp4 to clip4.mp4. Laptop 10s cuts: "clip1 (1).mp4" etc. Click a clip for sound. -->
  <div class="coll" aria-label="Example clips">
@@ -212,9 +226,26 @@ footer .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;f
  <h2 class="big">Pick your batch</h2>
  <!-- Prices are placeholders: replace with your real packages -->
  <div class="plans">
-  <div class="plan"><h3>Starter</h3><div class="pr">$199<small>/month</small></div><ul><li>20 clips a month</li><li>Captions, B-roll, audio included</li><li>every clip is suited to your need of service</li></ul><a class="btn" href="mailto:loopframeagency@gmail.com?subject=Starter">Choose Starter</a></div>
-  <div class="plan hot"><h3>Growth</h3><div class="pr">$350<small>/month</small></div><ul><li>40 clips a month</li><li>Captions, B-roll, audio included</li><li>Again every clip is suited to your needs and target current problems</li></ul><a class="btn" href="mailto:loopframeagency@gmail.com?subject=Growth">Choose Growth</a></div>
+  <div class="plan"><h3>Starter</h3><div class="pr">$150<small>/month</small></div><ul><li>20 clips a month</li><li>Captions, B-roll, audio included</li><li>every clip is suited to your need of service</li></ul><a class="btn" href="mailto:loopframeagency@gmail.com?subject=Starter">Choose Starter</a></div>
+  <div class="plan hot"><h3>Growth</h3><div class="pr">$250<small>/month</small></div><ul><li>40 clips a month</li><li>Captions, B-roll, audio included</li><li>Again every clip is suited to your needs and target current problems</li></ul><a class="btn" href="mailto:loopframeagency@gmail.com?subject=Growth">Choose Growth</a></div>
   <div class="plan"><h3>Studio</h3><div class="pr">Custom</div><ul><li>Daily clips</li><li>Dedicated editor</li><li>suited for every social media platform</li></ul><a class="btn" href="mailto:loopframeagency@gmail.com?subject=Studio">Talk to us</a></div>
+ </div>
+</div></section>
+
+<section class="rev" id="reviews"><div class="wrap">
+ <h2 class="big">What clients say</h2>
+ <p class="sub">Real words from creators and brands we've cut clips for.</p>
+ <!-- Replace each [bracketed] item with a real review (with the client's OK). Delete this section if you have none yet. -->
+ <div class="rg">
+  <div class="rc ph2"><div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+   <q>[Paste a real client review here]</q>
+   <div class="who"><div class="av">?</div><div><b>[Client name]</b><span>[Their channel or business]</span></div></div></div>
+  <div class="rc ph2"><div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+   <q>[Paste a real client review here]</q>
+   <div class="who"><div class="av">?</div><div><b>[Client name]</b><span>[Their channel or business]</span></div></div></div>
+  <div class="rc ph2"><div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+   <q>[Paste a real client review here]</q>
+   <div class="who"><div class="av">?</div><div><b>[Client name]</b><span>[Their channel or business]</span></div></div></div>
  </div>
 </div></section>
 
