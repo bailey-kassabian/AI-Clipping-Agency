@@ -121,6 +121,27 @@ nav .links{display:flex;gap:28px;font-size:16px}
 .stp b{font:400 clamp(30px,3.2vw,46px)/.95 var(--h);text-transform:uppercase}
 .stp span{font-weight:600;max-width:26ch}
 
+
+/* ---------- on-location shoots ---------- */
+.loc{padding:16vh 0;background:var(--ye)}
+.loc .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:6vw;align-items:center}
+.loc .kick{display:inline-block;background:var(--bk);color:var(--ye);font:400 16px/1 var(--h);letter-spacing:.08em;text-transform:uppercase;padding:9px 16px;border-radius:99px;margin-bottom:3vh}
+.loc .big{margin-bottom:3vh}
+.loc p.lead{font-size:clamp(17px,1.6vw,22px);max-width:40ch;margin:0 0 3vh;font-weight:500}
+.eq{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 4vh;padding:0;list-style:none}
+.eq li{border:3px solid var(--bk);border-radius:99px;padding:9px 18px;font-weight:700;font-size:15px}
+.eq li:nth-child(odd){background:var(--pk);border-color:var(--pk)}
+.ls{display:grid;gap:12px;margin:0 0 4vh;padding:0;list-style:none;max-width:46ch}
+.ls li{display:flex;gap:14px;align-items:baseline;font-weight:600}
+.ls i{font:400 28px/1 var(--h);font-style:normal;color:var(--or)}
+.locv{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,2vw,26px);padding-bottom:30px}
+.locv .cd{background:var(--bk)}
+.cd .nov{position:absolute;inset:0;z-index:1;display:grid;place-content:center;gap:10px;text-align:center;padding:18px;background:linear-gradient(160deg,#41403C,#1B1A18);color:var(--cr);font:400 clamp(20px,2.2vw,28px)/1.05 var(--h);text-transform:uppercase}
+.cd .nov small{font:600 12px/1.3 var(--b);text-transform:none;opacity:.7}
+.cd.ok .nov{display:none}
+.locv .cd:not(.ok) b,.locv .cd:not(.ok) .snd,.locv .cd:not(.ok) .pb{display:none}
+.cd .lt{position:absolute;left:12px;bottom:14px;z-index:2;font:700 12px/1 var(--b);font-style:normal;letter-spacing:.06em;text-transform:uppercase;background:var(--pk);color:var(--bk);padding:7px 11px;border-radius:99px}
+@media(max-width:860px){.loc .wrap{grid-template-columns:1fr}}
 .pk{background:var(--or);padding:16vh 0}
 .pk .big{color:var(--ye)}
 .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
@@ -162,6 +183,17 @@ summary::after{content:"+"}
 details[open] summary::after{content:"\2212"}
 details p{margin:12px 0 0;font-weight:500;max-width:56ch}
 
+
+/* ---------- about ---------- */
+.abt{background:var(--bk);color:var(--cr);padding:16vh 0 14vh}
+.abt .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:6vw;align-items:start}
+.abt .big{color:var(--ye);margin:0}
+.abt .big span{color:var(--pk)}
+.abt p{font-size:clamp(17px,1.6vw,22px);line-height:1.55;font-weight:500;margin:0 0 3vh;max-width:46ch}
+.abt p b{color:var(--ye)}
+.abt .tag{grid-column:1/-1;font:400 clamp(40px,8vw,128px)/.9 var(--h);text-transform:uppercase;letter-spacing:-.005em;color:var(--pk);margin-top:4vh;border-top:3px solid rgba(237,239,238,.18);padding-top:5vh}
+.abt .tag em{font-style:normal;color:var(--ye)}
+@media(max-width:860px){.abt .wrap{grid-template-columns:1fr;gap:4vh}}
 footer{background:var(--bl);color:var(--ye);padding:8vh 5vw 4vh;overflow:hidden}
 footer .mega{font:400 clamp(48px,14.5vw,250px)/.82 var(--h);text-transform:uppercase;letter-spacing:-.01em;color:var(--pk);margin:0 0 4vh}
 footer .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-weight:700}
@@ -170,7 +202,7 @@ footer .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;f
 </head>
 <body>
 
-<nav><a class="logo" href="#top">BAILEY<span style="color:var(--pk)">SCALES</span></a><div class="links"><a href="#craft">Clips</a><a href="#how">How it works</a><a href="#packages">Packages</a><a href="#reviews">Reviews</a><a href="#join">Updates</a></div><a href="#packages">Get clips</a></nav>
+<nav><a class="logo" href="#top">BAILEY<span style="color:var(--pk)">SCALES</span></a><div class="links"><a href="#craft">Clips</a><a href="#shoots">On location</a><a href="#how">How it works</a><a href="#packages">Packages</a><a href="#reviews">Reviews</a><a href="#about">About</a><a href="#join">Updates</a></div><a href="#packages">Get clips</a></nav>
 
 <div class="story" id="top">
  <div class="stage" id="stage">
@@ -223,6 +255,19 @@ footer .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;f
  </div>
 </div></section>
 
+<section class="loc" id="shoots"><div class="wrap">
+ <div>
+  <span class="kick">On location</span>
+  <h2 class="big">We come<br>to you</h2>
+  <p class="lead">Local business? We turn up with professional equipment, film the content on site and edit it into clips that are ready to post.</p>
+  <ul class="eq" aria-label="Equipment"><li>Pro camera</li><li>Lighting kit</li><li>Pro audio</li><li>Stabilised shots</li></ul>
+  <ol class="ls"><li><i>1</i>Tell us about your business and what you want to show off.</li><li><i>2</i>We film at your location with the full setup.</li><li><i>3</i>We edit, caption and hand over clips for every platform.</li></ol>
+  <a class="btn k" href="mailto:baileyscalesss@gmail.com?subject=On-location%20shoot">Book a shoot</a>
+ </div>
+ <!-- Example clips: save your two videos as shoot1.mp4 and shoot2.mp4 (optional posters shoot1.jpg / shoot2.jpg) in the same folder as this page. -->
+ <div class="locv" aria-label="On-location example clips"><div class="cd"><video src="shoot1.mp4" poster="shoot1.jpg" muted loop playsinline preload="metadata" aria-label="On-location example clip 1"></video><div class="nov"><span>Example clip 1</span><small>Add shoot1.mp4 next to this page</small></div><b>0:30</b><i class="pb"></i><button class="snd" type="button" aria-label="Toggle sound"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="off" d="M17 9l5 6M22 9l-5 6"/><path class="on" d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg></button><em class="lt">On location</em></div><div class="cd"><video src="shoot2.mp4" poster="shoot2.jpg" muted loop playsinline preload="metadata" aria-label="On-location example clip 2"></video><div class="nov"><span>Example clip 2</span><small>Add shoot2.mp4 next to this page</small></div><b>0:30</b><i class="pb"></i><button class="snd" type="button" aria-label="Toggle sound"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="off" d="M17 9l5 6M22 9l-5 6"/><path class="on" d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg></button><em class="lt">On location</em></div></div>
+</div></section>
+
 <section class="pk" id="packages"><div class="wrap">
  <h2 class="big">Pick your batch</h2>
  <!-- Prices are placeholders: replace with your real packages -->
@@ -259,7 +304,17 @@ footer .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;f
 <section class="faq"><div class="wrap">
  <details><summary>How long is each clip?</summary><p>Every clip is 30-60 seconds. every clip is unique and ask if you need a problem solved with you current clips, custom packages are available if you need more or less clips.</p></details>
  <details><summary>What do you need from me?</summary><p>The long video as a link or file. Add fonts and colours so we can make the clips unique to you but don't worry if you dont have these we will provide fonts and colors deticated to you.</p></details>
+ <details><summary>Do you film in person?</summary><p>Yes. For local businesses we come to your location with professional equipment, film the content on site and edit it into clips. Get in touch to talk about your area and what you need.</p></details>
  <details><summary>Can you make clips for different platforms?</summary><p>Yes. you send through the social media platforms you want to post on, we make it with correct size ratio and caption placement.</p></details>
+</div></section>
+
+<section class="abt" id="about"><div class="wrap">
+ <h2 class="big">About<br><span>us</span></h2>
+ <div>
+  <p>BaileyScales is a short form content agency helping creators, influencers, streamers and businesses grow their online presence. We transform long form content, livestreams and podcasts into engaging short form content for social media platforms like TikTok, Instagram Reels and YouTube Shorts.</p>
+  <p>Our mission is to make your life easier by turning your content into short, engaging clips, helping creators reach new audiences and grow their platforms through consistent, high quality content.</p>
+ </div>
+ <div class="tag">Your content. <em>More reach.</em></div>
 </div></section>
 
 <footer><div class="mega">BaileyScales</div><div class="row"><span>Clipping agency</span><a href="mailto:baileyscalesss@gmail.com">baileyscalesss@gmail.com</a></div></footer>
@@ -341,7 +396,8 @@ var cio="IntersectionObserver" in window?new IntersectionObserver(function(es){e
  if(e.isIntersecting&&!reduce){var p=v.play();if(p&&p.catch)p.catch(function(){})}else v.pause()})},{threshold:.35}):null;
 cds.forEach(function(cd){
  var v=cd.querySelector("video"),pb=cd.querySelector(".pb"),lb=cd.querySelector("b");
- v.addEventListener("loadedmetadata",function(){if(v.duration&&isFinite(v.duration)){var s=Math.round(v.duration);lb.textContent=Math.floor(s/60)+":"+(s%60<10?"0":"")+(s%60)}});
+ if(cd.querySelector(".nov")){var okf=function(){cd.classList.add("ok")};v.addEventListener("loadeddata",okf);if(v.readyState>=2)okf()}
+ var setd=function(){if(v.duration&&isFinite(v.duration)){var s=Math.round(v.duration);lb.textContent=Math.floor(s/60)+":"+(s%60<10?"0":"")+(s%60)}};v.addEventListener("loadedmetadata",setd);if(v.readyState>=1)setd();
  v.addEventListener("timeupdate",function(){if(v.duration)pb.style.width=(v.currentTime/v.duration*100)+"%"});
  cd.addEventListener("click",function(){
   var on=!cd.classList.contains("sound");
